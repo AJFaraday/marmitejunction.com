@@ -1,0 +1,21 @@
+<%= form_for(@junction_embed) do |f| %>
+  <% if @junction_embed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@junction_embed.errors.count, "error") %> prohibited this junction_embed from being saved:</h2>
+
+      <ul>
+      <% @junction_embed.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_area :code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

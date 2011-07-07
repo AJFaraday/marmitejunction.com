@@ -1,0 +1,2 @@
+module FilesEmbedsHelper
+end

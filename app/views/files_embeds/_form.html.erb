@@ -1,0 +1,21 @@
+<%= form_for(@files_embed) do |f| %>
+  <% if @files_embed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@files_embed.errors.count, "error") %> prohibited this files_embed from being saved:</h2>
+
+      <ul>
+      <% @files_embed.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_area :code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

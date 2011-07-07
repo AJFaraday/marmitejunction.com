@@ -1,0 +1,25 @@
+<div class=box>
+<h1>Listing files_embeds</h1>
+<p>Remember to delete embed codes once they've been deleted from soundcloud.</p>
+<table>
+  <tr>
+    <th>Added on</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @files_embeds.each do |files_embed| %>
+  <tr>
+    <td><%= files_embed.created_at.strftime("%d %b %Y") %></td>
+    <td><%= link_to 'Show', files_embed %></td>
+    <td><%= link_to 'Edit', edit_files_embed_path(files_embed) %></td>
+    <td><%= link_to 'Destroy', files_embed, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Files embed', new_files_embed_path %>
+</div>

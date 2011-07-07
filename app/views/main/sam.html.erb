@@ -1,0 +1,17 @@
+<div class=box>
+<p>After being discovered by two Californian teenagers frozen in a glacier, he was thawed out and gradually re-integrated back into society. Taught how to wear clothes, order a pizza and hold a pen, he was able to slip unnoticed amongst the student population and gain a rudimentary understanding of social norms.</p>
+<p>However, he’s still prone to flinging his faeces if feeling threatened. Despite his Neanderthal roots, he has a natural aptitude for the written word, respecting it in the same way modern man respects fire or Cheryl Cole. He can often be found seeking solace from a world that confuses and angers him in fantasies of his own creation. If something on Marmite Junction sounds in any way scripted or rehearsed, chances are it was penned by him.</p>
+</div>
+<div class='box'>
+  <h2>Sams Writing</h2>
+  <% @rss.each do |p| %>
+    <%= raw p.content.content %>
+    <br/>
+    <%unless p == @rss.last %>
+      <span>-------------------------------------------------------</span>
+    <% end %>
+  <% end %>
+  <br/>
+  <p>More of sam's writing blog can be found on <a href="http://samjsmith.blogspot.com">blogspot</a>.</p>
+</div>
+

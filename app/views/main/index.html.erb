@@ -1,0 +1,27 @@
+<div class='box'>
+    <p>How does one define 'Marmite Junction'? The dictionary defines <b>Marmite</b> as:</p>
+    <ul>
+      <li><i>n</i>(Brit) trademark, a yeast and vegetable extract used as a spread, flavouring, etc.</li>
+    </ul>
+    <p>And similarly defines <b>junction</b> as:</p>
+    <ul>
+      <li><i>n</i>  a place where several routes, lines, or roads meet, link, or cross each other; a railway junction.</li>
+    </ul>
+    <p>Neither of which is any help here. However, the <a href='http://www.andrewfaraday.com/faketionary'>faketionary</a> defines it thusly:</p>
+    <ul>
+      <li><b>Marmite Junction</b> - n (Brit) A radio show characterised by its lack of any coherent structure and/or regard to conventional broadcasting standards. In other words, a right old free-for-all.</li>
+    </ul>
+    <p>That's the basic recipe, but it needs a little something extra for it to become the Marmite Junction we all know and... know. Mix in 2 quirky hosts with an eye for the bizarre, stir thoroughly and bake for 2 hours every other Sunday from 7 - 9 PM. Oh, and make sure you preheat your radios to gas mark 96.9MHz. that's <a href='http://www.allfm.org'>allfm.org</a> Fahrenheit. Serves the entire population of south, central and east Manchester, may contain traces of nuts.</p>
+</div>
+<% JunctionEmbed.all.each do |j| %>
+  <div class='box'><%= raw j.code %></div>
+<% end %>
+<div class='box'>
+  <% @rss.each do |p| %>
+    <%= raw p.content.content %>
+    <br/>
+    <%unless p == @rss.last %>
+      <span>-------------------------------------------------------</span>
+    <% end %>
+  <% end %>
+</div>
