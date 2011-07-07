@@ -1,7 +1,8 @@
 class MainController < ApplicationController
 
+  require 'rss'
+
   def index
-    require 'rss'
     @rss = RSS::Parser.parse(open('http://marmitejunction.blogspot.com/feeds/posts/default').read, false).items[0..2]
   end
 
@@ -14,8 +15,16 @@ class MainController < ApplicationController
 
   def sam
     @pagename = "Sam Smith"
-    require 'rss'
     @rss = RSS::Parser.parse(open('http://samjsmith.blogspot.com/feeds/posts/default').read, false).items[0..1]
   end
+
+  def andrew
+    @pagename = "Andrew Faraday"
+  end
+
+  def jam
+    @pagename = "Marmite Jam"
+  end
+
 
 end
