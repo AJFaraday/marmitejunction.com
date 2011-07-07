@@ -16,11 +16,11 @@
       <!--<div id='logo' onclick="window.location='/'" />-->
       <div id=logo><a href='/'><img src='/logo.png' /></a></div>
       <div id='sitemap'>
-        <div class=link><%= link_to 'Home', '/' %></div>
-        <div class=link><%= link_to "Marmite Files", "/files"%></div>
-        <div class=link><%= link_to "Marmite Jam", '/jam' %></div>
-        <div class=link><%= link_to "Sam Smith", '/sam' %></div>
-        <div class=link><%= link_to "Andrew Faraday", '/andrew' %></div>
+        <div id=link2><%= link_to 'Home', '/', :class => 'red' %></div>
+        <div id=link><%= link_to "Marmite Files", "/files"%></div>
+        <div id=link2><%= link_to "Marmite Jam", '/jam' %></div>
+        <div id=link><%= link_to "Sam Smith", '/sam' %></div>
+        <div id=link2><%= link_to "Andrew Faraday", '/andrew' %></div>
         <% if current_user %>
           <div id='admin_menu'>
             <span>Admin Menu</span>
@@ -36,7 +36,7 @@
       <div id=flash><%= flash[:notice] %></div>
     <% end %>
     <% unless @pagename == 'nil' %>
-      <h1 id='subtitle'><%= @pagename%></h1>
+      <div class=box><h1 id='subtitle'><%= @pagename%></h1>
     <% end %>
     <div id='sidebar'>
       <div class='sidebox'>

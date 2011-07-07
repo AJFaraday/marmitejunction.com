@@ -45,12 +45,20 @@ body{
 
 }
 
-.link{
+#link{
   color:black;
   height:30px;
   width:220px;
   padding-left:10px;
 }
+
+#link2{
+  color:black;
+  height:30px;
+  width:220px;
+  padding-left:10px;
+}
+
 
 #sitemap a:link, #sitemap a:visited {
   color:white;
@@ -67,6 +75,10 @@ body{
   text-decoration:none;
   font-family: tahoma,arial,helvetica,sans-serif;
   padding: 5px 10px 5px 0px ;
+}
+
+#link a:hover {
+  color:#ff0000;
 }
 
 #admin_menu a:link, #admin_menu a:visited {
@@ -100,7 +112,9 @@ a:visited {
   float:left;
   margin-left:60px;
   padding:0px;
-  width:100%; 
+  margin:0px;
+  width:100%;
+  text-align:center; 
 }
 
 #flash{
@@ -164,3 +178,5 @@ a:visited {
   -moz-border-radius: 0px 0px 30px 20px;
   border-radius: 0px 0px 20px 15px;
 }
+
+
