@@ -1,6 +1,8 @@
 body{
   background-color: black;
-  color: white; 
+  color: white;
+  font-family: tahoma,arial,helvetica,sans-serif;
+ 
 }
 
 #holder{
@@ -109,7 +111,7 @@ body{
   width: 530px;
   margin:10px;
   padding: 20px;
-  background-color:white;
+  background-color:#eaeaea;
   -moz-border-radius: 30px 15px 30px 15px;
   border-radius: 30px 15px 30px 15px;
   color: black;
@@ -117,7 +119,6 @@ body{
 
 .tiny{
   font-size:10px;
-  line-height:70%;
 }
 
 #sidebar{
@@ -132,10 +133,12 @@ body{
   width:250px;
   margin:10px;
   padding:10px;
-  background-color:white;
+  background-color:#eaeaea;
   -moz-border-radius: 30px 15px 30px 15px;
   border-radius: 30px 15px 30px 15px;
   color: black;  
 }
 
-
+.backer{
+  background-color:white;
+}
