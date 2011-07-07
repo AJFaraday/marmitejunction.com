@@ -24,7 +24,11 @@ body{
   width:200px;
   height:154px;
   margin-bottom: 10px;
-  background-image:url('/logo.png');
+/*  background-image:url('/logo.png');*/
+}
+
+#logo img{
+  border-style:none;
 }
 
 #sitemap{
