@@ -37,13 +37,13 @@
         <div id=link2><%= link_to "Marmite Jam", '/jam' %></div>
         <div id=link><%= link_to "Sam Smith", '/sam' %></div>
         <div id=link2><%= link_to "Andrew Faraday", '/andrew' %></div>
-        <%# if current_user %>
-          <!--<div id='admin_menu'>
+        <% if current_user %>
+          <div id='admin_menu'>
             <span>Admin Menu</span>
-            <%# link_to 'MFiles Embeds', files_embeds_path %>
-            <%# link_to "Junction Embeds", junction_embeds_path %>
+            <% link_to 'MFiles Embeds', files_embeds_path %>
+            <% link_to "Junction Embeds", junction_embeds_path %>
    
-            <%# link_to "Log out", '/logout'%>-->
+            <% link_to "Log out", '/logout'%>
           </div>
         <%# end %>
       </div>
