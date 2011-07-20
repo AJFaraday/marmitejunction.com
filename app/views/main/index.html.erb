@@ -14,7 +14,7 @@
     <p>That's the basic recipe, but it needs a little something extra for it to become the Marmite Junction we all know and... know. Mix in 2 quirky hosts with an eye for the bizarre, stir thoroughly and bake for 2 hours every other Sunday from 7 - 9 PM. Oh, and make sure you preheat your radios to gas mark 96.9 (that's <a href='http://www.allfm.org'>allfm.org</a> Fahrenheit). Serves the entire population of south, central and east Manchester, may contain traces of nuts.</p>
 </div>
 <% JunctionEmbed.all.each do |j| %>
-  <div class='box'><% raw j.code %></div>
+  <div class='box'><%= raw j.code %></div>
 <% end %>
 <div class='box'>
   <% @rss.each do |p| %>
