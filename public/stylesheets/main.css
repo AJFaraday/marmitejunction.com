@@ -152,6 +152,12 @@ a:visited {
   color: black;
 }
 
+.pic{
+  position:relative;
+  float:left;
+  padding:5px;
+}
+
 .tiny{
   font-size:10px;
 }
