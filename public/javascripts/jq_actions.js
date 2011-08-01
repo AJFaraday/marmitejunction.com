@@ -16,30 +16,30 @@ function getDocHeight() {
   });
 });*/
 
+var $j = jQuery.noConflict();
+
 var title = ['M','A','R','M','I','T','E','J','U','N','C','T','I','O','N']
 var index = 0
 
-$(document).ready(function() {
-  $("div.jq_test").animate({
+$j(document).ready(function() {
+  $j("div.jq_test").animate({
     "margin-top": getDocHeight()
   }, 20000);
 });
 
-$(document).ready(function(){
-  $("body").click(function(){
-    $("div.jq_test2").clearQueue()
+$j(document).ready(function(){
+  $j("body").click(function(){
+    $j("div.jq_test2").clearQueue()
   });
-  $("body").click(function(){
-    $("div.jq_test2").html(title[(index%title.length)]);
+  $j("body").click(function(){
+    $j("div.jq_test2").html(title[(index%title.length)]);
 //    $("div.jq_test2").fadeIn(1);
-    $("div.jq_test2").css("opacity","1");
-    $("div.jq_test2").css("filter","opacity=100");
-    $("div.jq_test2").css("display","inline");
-    $("div.jq_test2").fadeOut(400);
+    $j("div.jq_test2").css("opacity","1");
+    $j("div.jq_test2").css("filter","opacity=100");
+    $j("div.jq_test2").css("display","inline");
+    $j("div.jq_test2").fadeOut(400);
     index=++index
   }); 
 
 });
 
-$(document).ready(function(){
-});

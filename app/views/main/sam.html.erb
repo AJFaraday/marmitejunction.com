@@ -5,6 +5,7 @@
 <div class='box'>
   <h2>Sams Writing</h2>
   <% @rss.each do |p| %>
+    <h3><%= p.title.content %></h3>
     <%= raw p.content.content %>
     <br/>
     <%unless p == @rss.last %>

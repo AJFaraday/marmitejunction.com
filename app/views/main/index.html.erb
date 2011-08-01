@@ -18,6 +18,7 @@
 <% end %>
 <div class='box'>
   <% @rss.each do |p| %>
+    <h3><%= p.title.content %></h3>
     <%= raw p.content.content %>
     <br/>
     <%unless p == @rss.last %>
