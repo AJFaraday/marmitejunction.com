@@ -26,7 +26,11 @@ class ReportsController < ApplicationController
   # GET /reports/new.xml
   def new
     @visitor = Visitor.find params[:visitor_id]
-    @report = Report.new(session[:rep_message].merge({:visitor_id => params[:visitor_id]}))
+    if session[:rep_message]
+      @report = Report.new(session[:rep_message].merge({:visitor_id => params[:visitor_id]}))
+    else
+      @report = Report.new :visitor_id => params[:visitor_id]
+    end
     @rep_errors = session[:rep_errors]
 
     respond_to do |format|
