@@ -30,6 +30,9 @@
     <div class="jq_test">
     </div>
   <div id='holder'>
+    <% if flash[:notice] %>
+      <div id=flash><%= flash[:notice] %></div>
+    <% end %>
     <div id="header">
       <div class="jq_test2">a</div>
       <div id=logo><a href='/'><img src='/logo.png' /></a></div>
@@ -50,9 +53,6 @@
         <% end %>
       </div>
     </div>
-    <% if flash[:notice] %>
-      <div id=flash><%= flash[:notice] %></div>
-    <% end %>
     <% unless @pagename == 'nil' %>
       <div class=box><h1 id='subtitle'><%= @pagename%></h1></div>
     <% end %>
@@ -95,6 +95,14 @@ new TWTR.Widget({
   }
 }).render().start();
 </script>
+      </div>
+      <div class=sidebox>
+        <h3>The Guest Book</h3>
+        <% @visitors.each do |v| %>
+          <%= render :partial => 'shared/guestbook_slim', :locals => {:visitor => v} %>
+        <% end %>
+        <%= link_to 'Read the rest of the guest book', visitors_path%>
+        <%= render :partial => 'shared/guestbook_form'%>
       </div>
     </div>
 

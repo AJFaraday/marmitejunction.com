@@ -1,0 +1,27 @@
+<p>
+  <b><%= visitor.name%>:</b><%= visitor.message%>
+  <% if visitor.reported == false %>
+    <small><%= link_to 'report', new_report_path(:visitor_id => visitor.id) %></small>
+  <% else %>
+    <% if current_user %>
+      <small><%= link_to 'unreport', unreport_visitor_path(visitor) %></small>
+    <% end %>
+  <% end %>
+  <% if visitor.reported == true %>
+    <div style='color:red;'>REPORTED</div>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Complaint</td>
+      <tr/>
+      <% visitor.reports.each do |r| %>
+        <tr>
+          <td><%= r.name %></td>
+          <td><%= r.email %></td>
+          <td><%= r.message %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</p>

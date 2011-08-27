@@ -1,0 +1,16 @@
+<div class=box>
+  <h1>Report an entry in the guestbook</h1>
+  <p>You have shown some problem with this entry in the Marmite Junction guestbook:</p>
+  <%= render :partial => 'shared/guestbook_slim', :locals => {:visitor => @visitor} %>
+  <p>We will only uphold these reports on grounds of:</p>
+  <ul>
+    <li>Sever profanity</li>
+    <li>Libel</li>
+    <li>Comparisons to Hitler</li>
+  </ul>
+  <p>So we can understand your objection, please fill in this form to tell us who you are and what your particular objection
+to this entry is:</p>
+
+
+<%= render 'form' %>
+</div>

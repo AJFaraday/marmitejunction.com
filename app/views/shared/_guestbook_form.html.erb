@@ -1,0 +1,18 @@
+<h4 style='margin-bottom:0px;'>Sign it?</h4>
+<%= form_for @new_visitor, visitors_path do |f| %>
+  <% if @gb_errors %>
+    <ul class=errors>
+      <% @gb_errors.each do |msg| %>
+        <li><%= msg[0] %> <%= msg[1] %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %><br/>
+  <%= f.text_field :name, :size => 28 %><br/>
+  <%= f.label :email, "Email (will not be shared)" %><br/>
+  <%= f.text_field :email, :size => 28 %><br/>
+  <%= f.label :message %><br/>
+  <%= f.text_area :message, :cols => 32, :rows => 5 %><br/>
+  <%= f.submit "Sign" %>
+<% end %>

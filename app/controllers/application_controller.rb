@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   def format_stuff
     @pagename = "nil"
+    @new_visitor = Visitor.new session[:gb_message]
+    @visitors = Visitor.where(:reported => false).shuffle[0..2]
+    #flash[:notice] = "Test flash notice thingy."
+    @gb_errors = session[:gb_errors]
   end
 
 #  filter_parameter_logging :password, :password_confirmation

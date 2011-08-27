@@ -1,0 +1,6 @@
+<div class=box>
+  <h1>The Marmite Junction guest book!</h1>
+  <% @main_visitors.each do |v| %>
+    <%= render :partial => 'shared/guestbook_slim', :locals => {:visitor => v} %>
+  <% end %>
+</div>

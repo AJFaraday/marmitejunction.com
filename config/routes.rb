@@ -1,9 +1,18 @@
 MarmiteSite2::Application.routes.draw do
+  resources :reports
+
   resources :junction_embeds
 
   resources :files_embeds
 
   resources :user_sessions 
+
+  resources :visitors do 
+    member do 
+      get 'unreport'
+    end
+  end
+
   match '/login' => "user_sessions#new"
   match '/logout' => "user_sessions#destroy" 
 
