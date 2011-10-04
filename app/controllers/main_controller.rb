@@ -15,7 +15,7 @@ class MainController < ApplicationController
 
   def sam
     @pagename = "Sam Smith"
-    @rss = RSS::Parser.parse(open('http://samjsmith.blogspot.com/feeds/posts/default').read, false).items[0..1]
+    @rss = RSS::Parser.parse(open('http://samjsmith.blogspot.com/feeds/posts/default').read, false).items[0..3]
   end
 
   def andrew
