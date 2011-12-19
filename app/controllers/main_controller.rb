@@ -8,7 +8,7 @@ class MainController < ApplicationController
 
   def files
     @pagename = "The Marmite Files"
-    unless @embeds = FilesEmbed.all[-2..-1]
+    unless @embeds = FilesEmbed.all
       @embeds = []
     end
   end
