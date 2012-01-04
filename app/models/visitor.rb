@@ -9,6 +9,9 @@ class Visitor < ActiveRecord::Base
   has_many :reports
 
   def set_reported_false
+    if message.include? '</a>'
+      self.destroy
+    end
     update_attribute :reported, false
   end
 
