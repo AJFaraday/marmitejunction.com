@@ -2,7 +2,7 @@
 <html>
 <head>
   <% if @pagename == "nil" %>
-    <title>The Marmite Revolution - It's spreading. </title>
+    <title>The Official Marmite Junction Wobsite</title>
   <% else %>
     <title>Marmite Junction - <%= @pagename%></title>
   <% end %>
@@ -108,6 +108,11 @@ new TWTR.Widget({
 
     <div id="content">
       <%= yield %>
+    </div>
+    <br clear=both />
+    <div style='color:white;font-size:10px;width:100%;'>
+      Please note: the mis-spelt word 'wobsite' in this site's title is in homage to an <a href="http://xkcd.com/148/">XKCD strip</a> from a number of years ago. Please feel free to check them out, it's full of absolutely perfect geek humor.
+
     </div> 
   </div> 
 </body>
