@@ -18,9 +18,12 @@ class Visitor < ActiveRecord::Base
   end
 
   def no_html_allowed
-    puts message
+    logger.info message
     if message.include? '>' and message.include? '</'
       errors.add(:message, 'cannot include html tags.')
+    end
+    if message.include? 'http://'
+      errors.add(:message, 'cannot include URLs, I was getting bored of cleaning the spam out of the guest book.')
     end
   end
 
