@@ -22,8 +22,21 @@ class Visitor < ActiveRecord::Base
     if message.include? '>' and message.include? '</'
       errors.add(:message, 'cannot include html tags.')
     end
-    if message.include? 'http://'
-      errors.add(:message, 'cannot include URLs, I was getting bored of cleaning the spam out of the guest book.')
+    forbidden = ['http://','@']
+    forbidden.each do |mark|
+      if message.include?(mark)
+        errors.add(:message, 'cannot include URLs or email addresses, I was getting bored of cleaning the spam out of the guest book.')
+      end
+    end
+  end
+
+  def Visitor.check
+    puts Visitor.first.inspect
+    puts 'remove this?(y/n)' 
+    gets check
+    if check == 'y'
+      Visitor.last.destroy
+      check
     end
   end
 
