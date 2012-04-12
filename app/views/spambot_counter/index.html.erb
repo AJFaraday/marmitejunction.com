@@ -14,16 +14,16 @@
   <p>Future plans include a LIVE feed of spams, so you could see the site being attacked as it happens.</p>
 </div>
 <div class=box>
-  <p>There you go, data recorded so far on useless, un-thinking bots trying to force one of the above three types of spam on to the site.</p>
+  <p>There you go, data recorded so far on useless, un-thinking bots trying to force one of the above three types of spam on to the site for the last 24 hours.</p>
   <table style='width:100%'>
     <tr>
       <% ['Hour','Spams Stopped'].each do |header|%>
         <th><%= header %></th>
       <% end %>
     </tr>
-    <% FailedVisit.order("created_at DESC").each do |hour| %>
+    <% FailedVisit.order("created_at DESC").limit(24).each do |hour| %>
       <tr>
-        <td><%=hour.created_at.change(:min => 0, :sec => 0, :usec => 0).strftime("%d/%m/%Y %I:%M %P") %></td>
+        <td><%=hour.created_at.utc.change(:min => 0, :sec => 0, :usec => 0).strftime("%d/%m/%Y %I:%M %P") %></td>
         <td><%=hour.count%></td>
       </tr>
     <% end %>
