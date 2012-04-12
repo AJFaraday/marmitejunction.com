@@ -1,0 +1,33 @@
+<div class=box>
+  <h1>The Marmite Junction Spambot Trap!</h1>
+  <h3>Background</h3>
+  <p>As marmite junctions presenter and webmaster, I've spent a lot of time since the site began programming in order to counter the fact that there is one huge secuity black hole in the website. The security loop is, in short, that I trust people, and want any genuine visitor to the marmite junction site to be able to leave their mark by popping a notice down in the guestbook. The trouble is that this means any old unwanted message distribution computer program (or spambot) can fill it up at a rate of knots with all manner of mindless advertising.</p>
+  <p>The solution has been to stop messages getting in to the book when they contain any of these things:</p>
+  <ol>
+    <li><b>HTML tags:</b> of course, html was always escaped on the guest book, so instead of seeing links to some random, unethical or useless companies website, you'd see a load of characters along the lines of <i>"<%= "<a style='font-size:1000px;' href='http://www.learntosingbiebersongsinfrenchovernight.com/prescription-meds'>Fluffy Kittens ROCK!</a>"%>"</i>.</li>
+    <li><b>URLs:</b> The next step from a worthless link, is a URL, which you could pop in to your browsers address bar and see exactly what they're actually talking about. Astonishingly, once I'd defended against HTML, this became the next source of spam on the marmite website. The guestbook became flooded with messages like this <i>"Want to see Justin Bieber eat a kitten while reciting memes? http://www.bit.ly/sdlkj"</i></li>
+    <li><b>Email addresses:</b> 'nuff said, without html or urls, I'd instead get <i>"Email me at honeststranger@dirtyoldmen.net and I'll be your friend for ever!"</i></li>
+  </ol>
+  <p>I have programmed against these things, and so far, it's worked very well. The guest book is relatively spam free, and I can be fairly assured that junk that does get through isn't going to lead anyone to a harmful part of the internet. Obviously, a certain amount of manual pruning still goes on. But not nearly so much.</p>
+  <h3>The Trap</h3>
+  <p>Validation, the style of programming used to stop this kind of attack doesn't stop the form being filled with this kind of material, of course. It simply doesn't record it, and certainly doesn't display it and I was aware that the spam was still rolling in. Armed with this knowledge, I decided to start recording the amount of spambots trying to push to the site. I built a simple system to increment a count whenever a visitor book entry was turned away. Then went for a walk, came back half an hour later and NINE spam entries had been turned away in that time. A little adjustment to take a new count each day and we have the <b>great marmite spambot trap</b>.</p>
+  <p>Future plans include recording the spam attacks in smaller grains, say, an hour. To see how spam attacks fluxuate during the day. Perhaps we can find out when spambots sleep. They also include a LIVE feed of spams, so you could see the site being attacked as it happens.</p>
+</div>
+<div class=box>
+  <p>There you go, data recorded so far on useless, un-thinking bots trying to force one of the above three types of spam on to the site.</p>
+  <table style='width:100%'>
+    <tr>
+      <% ['Day','Earliest Spam','Spams Stopped'].each do |header|%>
+        <th><%= header %></th>
+      <% end %>
+    </tr>
+    <% FailedVisit.order("created_at DESC").each do |day| %>
+      <tr>
+        <td><%=day.created_at.to_date.inspect%></td>
+        <td><%=day.created_at.strftime("%I:%M %P")%></td>
+        <td><%=day.count%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
