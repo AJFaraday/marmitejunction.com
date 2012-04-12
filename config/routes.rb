@@ -22,6 +22,7 @@ MarmiteSite2::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+  match "/spambots(/:action)", :controller => :spambot_counter
   match ":action", :controller => :main
 
   # Sample of named route:

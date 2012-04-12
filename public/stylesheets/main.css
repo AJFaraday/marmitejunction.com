@@ -214,3 +214,7 @@ ul.errors li{
   text-align:center;
   display:none;
 }
+
+td {
+  text-align:center;
+}

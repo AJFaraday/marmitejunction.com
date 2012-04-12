@@ -1,0 +1,2 @@
+class SpambotCounterController < ApplicationController
+end
