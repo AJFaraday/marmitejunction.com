@@ -5,9 +5,18 @@ class FailedVisit < ActiveRecord::Base
     failed = create(:count => 0)if failed.nil?
     return failed
   end
+  
+  def self.current
+    failed = FailedVisit.where(['created_at > ? and created_at < ?',
+                               Time.now.change(:min => 0, :sec => 0, :usec => 0), 
+                               (Time.now.change(:min => 0, :sec => 0, :usec => 0)]+1.hour)).first
+    failed = create(:count => 0)if failed.nil?
+    return failed
+  end
+
 
   def self.increment
-    todays.update_attribute(:count, (todays.count + 1)) 
+    current.update_attribute(:count, (todays.count + 1)) 
   end
 
 end

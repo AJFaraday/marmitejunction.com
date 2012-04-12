@@ -10,22 +10,21 @@
   </ol>
   <p>I have programmed against these things, and so far, it's worked very well. The guest book is relatively spam free, and I can be fairly assured that junk that does get through isn't going to lead anyone to a harmful part of the internet. Obviously, a certain amount of manual pruning still goes on. But not nearly so much.</p>
   <h3>The Trap</h3>
-  <p>Validation, the style of programming used to stop this kind of attack doesn't stop the form being filled with this kind of material, of course. It simply doesn't record it, and certainly doesn't display it and I was aware that the spam was still rolling in. Armed with this knowledge, I decided to start recording the amount of spambots trying to push to the site. I built a simple system to increment a count whenever a visitor book entry was turned away. Then went for a walk, came back half an hour later and NINE spam entries had been turned away in that time. A little adjustment to take a new count each day and we have the <b>great marmite spambot trap</b>.</p>
-  <p>Future plans include recording the spam attacks in smaller grains, say, an hour. To see how spam attacks fluxuate during the day. Perhaps we can find out when spambots sleep. They also include a LIVE feed of spams, so you could see the site being attacked as it happens.</p>
+  <p>Validation, the style of programming used to stop this kind of attack doesn't stop the form being filled with this kind of material, of course. It simply doesn't record it, and certainly doesn't display it and I was aware that the spam was still rolling in. Armed with this knowledge, I decided to start recording the amount of spambots trying to push to the site. I built a simple system to increment a count whenever a visitor book entry was turned away. Then went for a walk, came back half an hour later and NINE spam entries had been turned away in that time. A little adjustment to take a new count each hour and we have the <b>great marmite spambot trap</b>.</p>
+  <p>Future plans include a LIVE feed of spams, so you could see the site being attacked as it happens.</p>
 </div>
 <div class=box>
   <p>There you go, data recorded so far on useless, un-thinking bots trying to force one of the above three types of spam on to the site.</p>
   <table style='width:100%'>
     <tr>
-      <% ['Day','Earliest Spam','Spams Stopped'].each do |header|%>
+      <% ['Hour','Spams Stopped'].each do |header|%>
         <th><%= header %></th>
       <% end %>
     </tr>
-    <% FailedVisit.order("created_at DESC").each do |day| %>
+    <% FailedVisit.order("created_at DESC").each do |hour| %>
       <tr>
-        <td><%=day.created_at.to_date.inspect%></td>
-        <td><%=day.created_at.strftime("%I:%M %P")%></td>
-        <td><%=day.count%></td>
+        <td><%=hour.created_at.change(:min => 0, :sec => 0, :usec => 0).strftime("%d/%m/%Y %I:%M %P") %></td>
+        <td><%=hour.count%></td>
       </tr>
     <% end %>
   </table>
