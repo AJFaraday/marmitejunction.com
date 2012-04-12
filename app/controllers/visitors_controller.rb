@@ -16,10 +16,11 @@ class VisitorsController < ApplicationController
       flash[:notice] = "Thank you for making your addition to the Marmite Junction visitors book."
       redirect_to visitors_path
     else
-      flash[:notice] = "Something's wrong, try again?"
-      session[:gb_errors] = @visitor.errors
+      flash[:notice] = "I can't let that into the guest book because:<br/>#{@visitor.errors.full_messages.join('<br/>')}"
+      #session[:gb_errors] = @visitor.errors
       session[:gb_message] = @visitor.attributes
       redirect_to '/#bookform'
+      FailedVisit.increment
     end
   end
 
