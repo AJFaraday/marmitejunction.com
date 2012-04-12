@@ -22,33 +22,15 @@ class Visitor < ActiveRecord::Base
   attr_accessor :failed
 
   def no_html_allowed
-    puts "======================================"
-    get_failed_visitor_record
-    fail_flag = false
     if message.include? '>' and message.include? '</'
-      fail_flag = true
       errors.add(:message, 'cannot include html tags.')
     end
     forbidden = ['http://','@']
     forbidden.each do |mark|
       if message.include?(mark)
-        fail_flag = true
         errors.add(:message, 'cannot include URLs or email addresses, I was getting bored of cleaning the spam out of the guest book.')
       end
     end
-    if @failed and fail_flag == true
-      @failed.count += 1
-      @failed.save 
-      puts @failed.inspect
-    end
   end
 
-  def get_failed_visitor_record
-    @failed = FailedVisit.where(["created_at > ? AND created_at < ?", Time.now.beginning_of_day, Time.now.end_of_day]).first
-    puts @failed
-    if @failed.nil?
-      @failed = FailedVisit.create!(:count => 0)
-      puts "creating failed visit record"
-    end
-  end
 end
