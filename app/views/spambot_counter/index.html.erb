@@ -23,7 +23,7 @@
     </tr>
     <% FailedVisit.order("created_at DESC").limit(24).each do |hour| %>
       <tr>
-        <td><%=hour.created_at.utc.change(:min => 0, :sec => 0, :usec => 0).strftime("%d/%m/%Y %I:%M %P") %></td>
+        <td><%=(hour.created_at.utc.change(:min => 0, :sec => 0, :usec => 0)+1.hour).strftime("%d/%m/%Y %I:%M %P") %></td>
         <td><%=hour.count%></td>
       </tr>
     <% end %>
