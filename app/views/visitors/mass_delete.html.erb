@@ -1,0 +1,22 @@
+<div class=box>
+  <h1>Cull your visitor book entries</h1>
+  <% form_tag mass_delete_visitors_path do  %>
+    <%= submit_tag 'delete checked' %>
+    <table>
+      <tr>
+        <% ['','Reported','from','message'].each do |header| %>
+          <th><%= header %></th>
+        <% end %>
+      </tr>
+      <% Visitor.all.each do |visitor| %>
+        <tr>
+          <td><%= check_box_tag "visitor_#{visitor.id}" %></td>
+          <td><%= visitor.reported %></td>
+          <td><%= visitor.name %></td>
+          <td><%= visitor.message %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+</div>

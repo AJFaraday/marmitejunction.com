@@ -11,6 +11,10 @@ MarmiteSite2::Application.routes.draw do
     member do 
       get 'unreport'
     end
+    collection do
+      post 'mass_delete'
+      get 'mass_delete'
+    end
   end
 
   match '/login' => "user_sessions#new"
@@ -23,6 +27,7 @@ MarmiteSite2::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   match "/spambots(/:action)", :controller => :spambot_counter
+  match "/visitors(/:action)", :controller => :visitors
   match ":action", :controller => :main
 
   # Sample of named route:

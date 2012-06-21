@@ -1,5 +1,6 @@
 <div class=box>
   <h1>The Marmite Junction guest book!</h1>
+  <%= button_to 'mass delete', mass_delete_visitors_path if current_user%>
   <% @main_visitors.each do |v| %>
     <%= render :partial => 'shared/guestbook_slim', :locals => {:visitor => v} %>
   <% end %>

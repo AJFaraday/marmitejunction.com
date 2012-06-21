@@ -1,5 +1,7 @@
 class VisitorsController < ApplicationController
 
+  before_filter :require_user, :only => [:unreport, :mass_delete]
+
   def index
     if current_user
       @main_visitors = Visitor.all
@@ -30,5 +32,20 @@ class VisitorsController < ApplicationController
     flash[:notice] = "You've unreported that particular entry in the guestbook."
     redirect_to visitors_path
   end 
+
+  def mass_delete
+    if params[:commit]
+      visitors = []
+      params.keys.each do |key|
+        puts key
+        if key.to_s.include? "visitor_"
+          visitors << Visitor.find(key.to_s.gsub('visitor_','').to_i)
+        end
+      end
+      flash[:notice] = "#{visitors.count} visitor book entries have been culled."
+      visitors.each{|v| v.destroy}
+      redirect_to visitors_url
+    end 
+  end
 
 end
